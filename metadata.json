@@ -1,0 +1,6 @@
+{
+  "name": "Renbite Support Center",
+  "description": "A clean, modern support center for Renbite, managed and supported by Compell Solutions LLC with interactive FAQs and ticketing routing to compellsolutions@gmail.com.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
