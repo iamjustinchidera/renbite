@@ -38,9 +38,29 @@ export const ContactForm: React.FC<ContactFormProps> = ({
 
   // UI state
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [activeTicket, setActiveTicket] = useState<SupportTicket | null>(null);
-  const [agentStatus, setAgentStatus] = useState<'waiting' | 'assigned' | 'typing' | 'replied'>('waiting');
-  const [agentResponse, setAgentResponse] = useState('');
+  const [activeTicket, setActiveTicket] = useState<SupportTicket | null>(() => {
+    // Restore ticket from localStorage so returning from email app on mobile shows the dashboard
+    try {
+      const saved = localStorage.getItem('renbite_active_ticket');
+      return saved ? (JSON.parse(saved) as SupportTicket) : null;
+    } catch {
+      return null;
+    }
+  });
+  const [agentStatus, setAgentStatus] = useState<'waiting' | 'assigned' | 'typing' | 'replied'>(() => {
+    try {
+      return (localStorage.getItem('renbite_agent_status') as 'waiting' | 'assigned' | 'typing' | 'replied') || 'waiting';
+    } catch {
+      return 'waiting';
+    }
+  });
+  const [agentResponse, setAgentResponse] = useState(() => {
+    try {
+      return localStorage.getItem('renbite_agent_response') || '';
+    } catch {
+      return '';
+    }
+  });
   
   // Timer for ticket simulation
   const [secondsRemaining, setSecondsRemaining] = useState(900); // 15 minutes = 900s
@@ -72,11 +92,36 @@ export const ContactForm: React.FC<ContactFormProps> = ({
     return () => clearInterval(interval);
   }, [activeTicket, secondsRemaining]);
 
-  // Simulate support agent actions
+  // Persist ticket state to localStorage whenever it changes
+  useEffect(() => {
+    try {
+      if (activeTicket) {
+        localStorage.setItem('renbite_active_ticket', JSON.stringify(activeTicket));
+      } else {
+        localStorage.removeItem('renbite_active_ticket');
+        localStorage.removeItem('renbite_agent_status');
+        localStorage.removeItem('renbite_agent_response');
+      }
+    } catch {}
+  }, [activeTicket]);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('renbite_agent_status', agentStatus);
+    } catch {}
+  }, [agentStatus]);
+
+  useEffect(() => {
+    try {
+      if (agentResponse) localStorage.setItem('renbite_agent_response', agentResponse);
+    } catch {}
+  }, [agentResponse]);
+
+  // Simulate support agent actions — only run if we don't already have a replied state restored
   useEffect(() => {
     let t1: NodeJS.Timeout, t2: NodeJS.Timeout, t3: NodeJS.Timeout;
     
-    if (activeTicket) {
+    if (activeTicket && agentStatus !== 'replied') {
       // 1. Assign agent after 4 seconds
       t1 = setTimeout(() => {
         setAgentStatus('assigned');
@@ -92,11 +137,11 @@ export const ContactForm: React.FC<ContactFormProps> = ({
             
             if (activeTicket.role === 'customer') {
               setAgentResponse(
-                `Hi ${firstName}! I'm Sarah from the Customer Care team. I see you're asking about "${activeTicket.subject}." I'm reviewing your account and active orders now. To expedite your refund or delivery issue, please make sure your delivery address and recent order numbers are ready. I will follow up in less than 2 minutes!`
+                `Hi ${firstName}! I'm Sarah from the Renbite Support team. I can see you're reaching out about "${activeTicket.subject}." I'm looking into this for you right now — whether it's a question about the AI recommendations, saving favourites, or exploring restaurants on the map, I've got you covered. I'll follow up with a full answer in less than 2 minutes!`
               );
             } else {
               setAgentResponse(
-                `Hello ${firstName}! I'm Marcus from Merchant Operations. Thanks for reaching out regarding "${activeTicket.subject}." I've flagged this for our priority merchant integration desk. We'll verify your restaurant credentials shortly to unlock your menu or process your payout. Hang tight, a specialist is on it!`
+                `Hello ${firstName}! I'm Marcus from our Restaurant Partner team. Thanks for getting in touch about "${activeTicket.subject}." I've flagged this for our dedicated owner support desk. Whether it's your listing, analytics, boosting visibility, or publishing events, a specialist will be with you shortly. Hang tight!`
               );
             }
           }, 6000);
@@ -132,10 +177,11 @@ export const ContactForm: React.FC<ContactFormProps> = ({
         status: 'open',
       };
 
-      // Open mailto link pre-populated
+      // Open mailto as a new window/tab so mobile treats it as external
+      // and does NOT reload this page when the user returns from the email app
       const mailtoSubject = `[Renbite Support Request] ${subject}`;
-      const mailtoBody = `Renbite Support Ticket Details:\n--------------------------------\nTicket ID: ${generatedTicketId}\nName: ${name}\nEmail: ${email}\nRole: ${role === 'customer' ? 'Customer' : 'Restaurant Owner'}\n\nMessage:\n${message}\n\n--------------------------------\nSubmitted via Renbite Support Center`;
-      window.location.href = `mailto:compellsolutions@gmail.com?subject=${encodeURIComponent(mailtoSubject)}&body=${encodeURIComponent(mailtoBody)}`;
+      const mailtoBody = `Renbite Support Ticket Details:\n--------------------------------\nTicket ID: ${generatedTicketId}\nName: ${name}\nEmail: ${email}\nRole: ${role === 'customer' ? 'Diner' : 'Restaurant Owner'}\n\nMessage:\n${message}\n\n--------------------------------\nSubmitted via Renbite Support Center`;
+      window.open(`mailto:compellsolutions@gmail.com?subject=${encodeURIComponent(mailtoSubject)}&body=${encodeURIComponent(mailtoBody)}`);
 
       setActiveTicket(newTicket);
       setIsSubmitting(false);
@@ -146,7 +192,15 @@ export const ContactForm: React.FC<ContactFormProps> = ({
   };
 
   const handleCloseTicket = () => {
+    // Clear persisted state from localStorage
+    try {
+      localStorage.removeItem('renbite_active_ticket');
+      localStorage.removeItem('renbite_agent_status');
+      localStorage.removeItem('renbite_agent_response');
+    } catch {}
     setActiveTicket(null);
+    setAgentStatus('waiting');
+    setAgentResponse('');
     setName('');
     setEmail('');
     setSubject('');
@@ -179,7 +233,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
                 Still have questions?
               </h2>
               <p className="mt-4 text-orange-50/90 text-sm leading-relaxed font-medium">
-                Can't find the answers in our database? Submit a support ticket directly to our help desk. Submissions automatically route to compellsolutions@gmail.com via secure mail.
+                Can't find the answer in our help articles? Submit a ticket and our team will help — whether you're a diner or a restaurant owner, we're here to make your Renbite experience seamless.
               </p>
             </div>
 
@@ -281,8 +335,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({
                       onChange={(e) => setRole(e.target.value as 'customer' | 'restaurant')}
                       className="w-full px-3.5 py-2.5 bg-white border border-gray-200 focus:border-brand-500 focus:ring-4 focus:ring-orange-500/10 rounded-xl text-sm font-semibold text-gray-700 transition-all"
                     >
-                      <option value="customer">I am a Customer (Order, Delivery, Refund)</option>
-                      <option value="restaurant">I am a Restaurant Owner (Selling, Menu, Payouts)</option>
+                      <option value="customer">I am a Diner (Discovery, AI, Favourites, Map)</option>
+                      <option value="restaurant">I am a Restaurant Owner (Listing, Analytics, Boost, Events)</option>
                     </select>
                   </div>
 
@@ -295,7 +349,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
                       required
                       value={subject}
                       onChange={(e) => setSubject(e.target.value)}
-                      placeholder="e.g. Refund request for order #3829"
+                      placeholder="e.g. Can't see my restaurant on the map"
                       className="w-full px-3.5 py-2.5 bg-white border border-gray-200 focus:border-brand-500 focus:ring-4 focus:ring-orange-500/10 rounded-xl text-sm transition-all placeholder-gray-400 font-medium"
                     />
                   </div>
@@ -369,7 +423,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
                     </div>
                     <div>
                       <span className="text-gray-400 block font-semibold">ROLE</span>
-                      <span className="text-gray-900 font-bold uppercase">{activeTicket.role === 'customer' ? 'Food Customer' : 'Restaurant Merchant'}</span>
+                      <span className="text-gray-900 font-bold uppercase">{activeTicket.role === 'customer' ? 'Diner' : 'Restaurant Owner'}</span>
                     </div>
                     <div>
                       <span className="text-gray-400 block font-semibold">EST. WAIT TIME</span>

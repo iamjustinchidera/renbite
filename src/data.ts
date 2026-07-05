@@ -9,111 +9,111 @@ export const FAQ_DATA: FaqItem[] = [
   // --- GENERAL / COMMON ---
   {
     id: 'gen-1',
-    question: 'How do I create or switch between customer and seller accounts?',
-    answer: 'You can register an account using your email or social log-ins. If you want to order food, you can use our standard Customer profile. If you want to sell food, you can tap "Register Restaurant" or "Sell Food" inside your account settings. This allows you to manage both profiles under a single email address, making it seamless to order and manage your shop.',
+    question: 'How do I create an account on Renbite?',
+    answer: 'Signing up on Renbite is quick and free. Download the app, tap "Get Started", and register using your email or a social login. During sign-up, you will choose your role — either a Diner looking to discover restaurants, or a Restaurant Owner who wants to list and grow their business. You can switch roles or manage both under a single account at any time from your profile settings.',
     role: 'all',
     category: 'Account & Profile'
   },
   {
     id: 'gen-2',
-    question: 'Is my payment information secure on this platform?',
-    answer: 'Absolutely. We use industry-standard SSL encryption and process all transactions through certified Level 1 PCI-compliant payment gateways. Your credit card information is never stored directly on our servers, ensuring your transactions are safe and fully encrypted.',
+    question: 'Does Renbite deliver food to my door?',
+    answer: 'No — Renbite is a restaurant discovery platform, not a food delivery service. We help you find amazing local restaurants near you, see their menus, check live wait times, discover events and deals, and even get AI-powered recommendations based on what you\'re craving. Once you find your perfect spot, you visit the restaurant yourself or contact them directly.',
     role: 'all',
-    category: 'Billing & Security'
+    category: 'About Renbite'
   },
   {
     id: 'gen-3',
-    question: 'How does the customer rating and review system work?',
-    answer: 'Transparency is vital to our community. Customers can rate their overall experience (1 to 5 stars) and leave written feedback for both the food quality and delivery service within 7 days of placing their order. Restaurant owners can view and reply to reviews directly from their dashboard.',
+    question: 'Is Renbite free to use?',
+    answer: 'Yes! Renbite is completely free to download and use for diners. You can discover restaurants, browse menus, save favourites, chat with the AI, and explore the map at no cost. Restaurant owners have access to a free listing tier and can upgrade to a premium plan for enhanced visibility, analytics, and boosting tools.',
     role: 'all',
-    category: 'Feedback & Support'
+    category: 'About Renbite'
   },
   {
     id: 'gen-4',
-    question: 'What is your refund policy for orders with issues?',
-    answer: 'If your order is incorrect, missing items, or arrives in poor condition, you can request a refund. Go to "Order History", tap "Report an Issue", upload a photo if applicable, and submit your request. Our support team reviews all disputes within 15 minutes, issuing refunds to your original payment method or as App Credit.',
+    question: 'How does the rating and review system work?',
+    answer: 'After visiting a restaurant you discovered through Renbite, you can rate your experience from 1 to 5 stars and leave a written review. Reviews are visible to the entire community and help other diners make informed choices. Restaurant owners can view all reviews from their dashboard and reply publicly to engage with their customers.',
     role: 'all',
-    category: 'Orders & Refunds'
+    category: 'Feedback & Support'
   },
 
-  // --- CUSTOMERS (ORDERING FOOD) ---
+  // --- CUSTOMERS (DINERS) ---
   {
     id: 'cust-1',
-    question: 'How do I track my food delivery in real-time?',
-    answer: 'Once your order is accepted by the restaurant, you will see a real-time tracking map on your dashboard. You can watch the restaurant prepare your food, see when the driver picks up your meal, and monitor the driver\'s live GPS coordinates directly to your doorstep.',
+    question: 'How does the AI chatbot recommend restaurants?',
+    answer: 'Renbite\'s AI chatbot is your personal dining assistant. Just tell it what you\'re in the mood for — "I want something spicy and affordable near me" or "Find me a cozy Italian restaurant for a date night" — and it will instantly suggest nearby restaurants that match your craving, budget, and vibe. The more you use it, the better its recommendations get based on your preferences.',
     role: 'customer',
-    category: 'Order Tracking'
+    category: 'AI & Discovery'
   },
   {
     id: 'cust-2',
-    question: 'Can I cancel or modify my food order after placing it?',
-    answer: 'You can cancel or make changes to your order within a 2-minute "grace period" after submission. After 2 minutes, the restaurant begins preparing your fresh ingredients, and cancellations are no longer permitted to avoid food waste and protect our kitchen partners.',
+    question: 'How do I explore restaurants on the map?',
+    answer: 'Tap the Map icon in the app to see all nearby restaurants plotted around your current location. You can filter by cuisine type, price range, or current operating hours. Tapping any pin on the map opens that restaurant\'s full profile, including photos, menus, wait times, and any active deals or events.',
     role: 'customer',
-    category: 'Orders & Refunds'
+    category: 'AI & Discovery'
   },
   {
     id: 'cust-3',
-    question: 'What should I do if I have specific dietary requirements or food allergies?',
-    answer: 'Before adding an item to your cart, please check the allergen tags (e.g., Gluten-Free, Nut-Free, Vegan) on the item details. You can also use the "Special Instructions" box at checkout to notify the kitchen of severe allergies. We recommend calling the restaurant directly for critical allergy concerns.',
+    question: 'How accurate are the live wait times shown on restaurant profiles?',
+    answer: 'Wait times on Renbite are updated by restaurant owners directly through their dashboard in real time. Owners can set their current busyness level and estimated wait, so you always have the latest picture before you head out. This saves you from turning up at a packed restaurant without knowing ahead of time.',
     role: 'customer',
-    category: 'Dietary & Allergies'
+    category: 'Restaurant Info'
   },
   {
     id: 'cust-4',
-    question: 'How are delivery fees, platform surcharges, and driver tips calculated?',
-    answer: 'Delivery fees are calculated based on your physical distance to the restaurant. A small platform service fee is added to help us secure transactions and maintain our customer support team. 100% of driver tips go directly to the courier who delivers your food.',
+    question: 'How do I save my favourite restaurants?',
+    answer: 'On any restaurant\'s profile page, tap the heart icon (❤️) to save it to your Favourites. Your saved restaurants are collected in the "Favourites" tab of your profile, so you can quickly revisit the places you love. You\'ll also get notified when a saved restaurant posts a new deal or event.',
     role: 'customer',
-    category: 'Billing & Security'
+    category: 'Account & Profile'
   },
   {
     id: 'cust-5',
-    question: 'How do I apply coupon codes or referral discounts?',
-    answer: 'At checkout, look for the "Promo Code" input box in the order summary section. Type your active discount code and click "Apply". If you received a referral discount, it is automatically saved to your account and applied as a discount on your next eligible order over $15.',
+    question: 'How do I find restaurant events and special deals?',
+    answer: 'Restaurant owners publish their events, limited-time offers, and special promotions directly on their Renbite profile. You can find these in two places: on the restaurant\'s individual profile page under the "Events & Deals" tab, or in the Explore feed on the home screen where trending events and offers near you are highlighted.',
     role: 'customer',
-    category: 'Billing & Security'
+    category: 'Events & Deals'
   },
 
-  // --- RESTAURANTS (SELLING FOOD) ---
+  // --- RESTAURANTS (OWNERS) ---
   {
     id: 'rest-1',
-    question: 'How long does it take for my restaurant to be approved and onboarded?',
-    answer: 'After filling out our restaurant registration form and submitting your food service permits and bank details, our review team will verify your business documents. Onboarding typically takes 24 to 48 hours, after which you will receive your login details to access the Restaurant Dashboard and upload your menu.',
+    question: 'How do I list my restaurant on Renbite?',
+    answer: 'Getting your restaurant on Renbite is simple. Download the app, select "I\'m a Restaurant Owner" during sign-up, and fill in your restaurant details — name, location, cuisine type, opening hours, and photos. Our team reviews new listings within 24 to 48 hours, and once approved, your profile goes live and is immediately discoverable by local diners.',
     role: 'restaurant',
     category: 'Registration & Onboarding'
   },
   {
     id: 'rest-2',
-    question: 'What are the platform commission fees and pricing structures?',
-    answer: 'We believe in fair pricing. We charge a flat 15% commission fee on orders delivered by our driver network, and a reduced 5% commission on customer pickup/takeaway orders. These fees cover all payment gateway processing, platform maintenance, customer acquisition, and 24/7 support.',
+    question: 'What analytics can I see about my restaurant\'s performance?',
+    answer: 'Your Restaurant Dashboard gives you powerful insights into how your profile is performing. You can track the number of profile views, how many users saved your restaurant, engagement with your events and deals, and how customers found you (map, AI recommendation, search, etc.). Use these insights to understand what is attracting diners and refine your strategy.',
     role: 'restaurant',
-    category: 'Commission & Pricing'
+    category: 'Analytics & Insights'
   },
   {
     id: 'rest-3',
-    question: 'When and how do I receive payouts for my restaurant sales?',
-    answer: 'All completed orders are aggregated weekly. Payouts are directly deposited into your registered bank account every Monday via bank transfer. You can download complete accounting logs, invoices, and tax summaries directly from the "Finance" tab in your Restaurant Dashboard.',
+    question: 'How do I boost my restaurant\'s visibility on Renbite?',
+    answer: 'Renbite offers a "Boost" feature that elevates your restaurant to appear higher in discovery results, the AI\'s recommendations, and the home screen explore feed. You can activate a boost for a set duration from your dashboard. Boosted restaurants are also shown a "Promoted" badge, increasing trust and click-through from curious diners.',
     role: 'restaurant',
-    category: 'Payouts & Finance'
+    category: 'Visibility & Boosting'
   },
   {
     id: 'rest-4',
-    question: 'How do I update my menu, opening hours, or temporarily pause incoming orders?',
-    answer: 'From your Restaurant Dashboard, you can add, edit, or remove menu items, set pricing, toggle allergens, and adjust opening hours instantly. If your kitchen gets extremely busy during rush hour, you can tap the "Busy Mode" or "Pause Orders" button to temporarily stop taking new orders for 15, 30, or 60 minutes.',
+    question: 'How do I update my menu, photos, and opening hours?',
+    answer: 'From your Restaurant Dashboard, you can update your menu items, adjust prices, add or remove photos, and set your daily opening hours at any time. Changes go live immediately so your profile always reflects accurate, up-to-date information. Keeping your profile fresh with new photos and seasonal menu updates helps attract more diners.',
     role: 'restaurant',
-    category: 'Kitchen Management'
+    category: 'Profile Management'
   },
   {
     id: 'rest-5',
-    question: 'Can we use our own in-house delivery riders instead of your driver network?',
-    answer: 'Yes! We support self-delivery for restaurants that already employ their own delivery staff. In your onboarding settings, simply choose "Self-Delivery Mode." This reduces your platform commission fee to 8% since you are managing your own routing, and lets you customize your own delivery zones.',
+    question: 'How do I publish events, specials, or limited-time offers?',
+    answer: 'In your dashboard, navigate to "Events & Promotions" and tap "Create New". You can post upcoming dining events (live music nights, tasting menus, themed evenings), limited-time dishes, happy hour specials, or exclusive discount offers. These appear on your profile and are featured in the Explore feed so nearby diners can discover them easily.',
     role: 'restaurant',
-    category: 'Delivery & Logistics'
+    category: 'Events & Promotions'
   },
   {
     id: 'rest-6',
-    question: 'How can I run promotional campaigns or offer discounts to boost sales?',
-    answer: 'Inside the "Marketing" tab of your dashboard, you can design and run custom campaigns. You can offer flat-rate discounts, percentage-off deals, "Buy One Get One" (BOGO) items, or free delivery. You control the budget, duration, and eligible menu items, and you can track campaign performance in real-time.',
+    question: 'How can I update the live wait time or busyness level for my restaurant?',
+    answer: 'In your Restaurant Dashboard, there is a "Live Status" panel where you can update your current wait time and busyness level with a single tap. Options include "Quiet", "Moderate", "Busy", and a custom estimated wait time in minutes. Diners who have saved your restaurant can see this information in real time before deciding to visit.',
     role: 'restaurant',
-    category: 'Marketing & Sales'
+    category: 'Profile Management'
   }
 ];

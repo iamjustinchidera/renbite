@@ -21,12 +21,12 @@ export const Hero: React.FC<HeroProps> = ({
   onClearSearch,
 }) => {
   const suggestions = [
-    { label: 'Track Delivery', query: 'track', role: 'customer' },
-    { label: 'Refund Policy', query: 'refund', role: 'customer' },
-    { label: 'Platform Fees', query: 'commission', role: 'restaurant' },
-    { label: 'Weekly Payouts', query: 'payout', role: 'restaurant' },
-    { label: 'Menu Updates', query: 'menu', role: 'restaurant' },
-    { label: 'Allergies', query: 'allergy', queryLabel: 'allergy', role: 'customer' },
+    { label: 'AI Chatbot', query: 'AI', role: 'customer' },
+    { label: 'Map Explore', query: 'map', role: 'customer' },
+    { label: 'Boost Visibility', query: 'boost', role: 'restaurant' },
+    { label: 'Analytics', query: 'analytics', role: 'restaurant' },
+    { label: 'Events & Deals', query: 'events', role: 'restaurant' },
+    { label: 'Save Favourites', query: 'favourite', role: 'customer' },
   ];
 
   return (
@@ -45,12 +45,12 @@ export const Hero: React.FC<HeroProps> = ({
 
         {/* Title */}
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 leading-tight max-w-2xl" id="hero-title">
-          Contact our friendly team
+          How can we help you?
         </h1>
         
         {/* Subtitle */}
         <p className="mt-4 text-lg text-gray-600 max-w-xl font-medium" id="hero-subtitle">
-          Let us know how we can help. Search our FAQs, switch between buyer & seller guides, or contact us directly.
+          Search our help articles, browse diner & owner guides, or reach out to our team directly — we're here for you.
         </p>
 
         {/* Search bar wrapper (iOS Spotlight style) */}
@@ -65,10 +65,10 @@ export const Hero: React.FC<HeroProps> = ({
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder={`Search help for ${
               selectedRole === 'all'
-                ? 'customers & restaurant owners'
+                ? 'diners & restaurant owners'
                 : selectedRole === 'customer'
-                ? 'ordering food & deliveries'
-                : 'managing menus & payouts'
+                ? 'discovering restaurants & AI chat'
+                : 'managing your listing & analytics'
             }...`}
             className="block w-full pl-11 pr-12 py-4 bg-gray-100/90 hover:bg-gray-150/80 focus:bg-white border border-transparent focus:border-brand-500/20 focus:ring-4 focus:ring-brand-500/10 rounded-2xl text-gray-950 placeholder-gray-400 text-base shadow-[0_4px_24px_rgba(0,0,0,0.03)] focus:shadow-[0_12px_36px_rgba(0,0,0,0.06)] transition-all duration-300 font-medium"
             id="faq-search-input"

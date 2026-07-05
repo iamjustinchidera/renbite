@@ -17,10 +17,10 @@ export const ContactCards: React.FC<ContactCardsProps> = ({ onContactClick }) =>
       id: 'support',
       icon: MessagesSquare,
       title: 'Chat to support',
-      description: 'Having issues with your Renbite order, delivery, or account?',
+      description: 'Need help discovering restaurants, using the AI, or managing your listing?',
       contact: 'compellsolutions@gmail.com',
       actionLabel: 'Submit Support Ticket',
-      onClick: () => onContactClick('Customer Support Assistance', 'customer'),
+      onClick: () => onContactClick('Renbite App Support', 'customer'),
       bgGradient: 'from-[#29d854] to-[#1fd143]', // iOS iMessage style vibrant green gradient
       iconShadow: 'shadow-[0_8px_24px_rgba(31,209,67,0.35)]',
     },

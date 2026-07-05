@@ -33,36 +33,37 @@ export const LegalModal: React.FC<LegalModalProps> = ({ isOpen, pageType, onClos
 
             <div className="prose prose-sm text-gray-600 space-y-4 leading-relaxed text-sm">
               <p className="font-medium text-gray-900">
-                At Renbite, managed by Compell Solutions LLC, we take your privacy and security seriously. This privacy policy describes how we collect, use, and safeguard your data.
+                At Renbite, managed by Compell Solutions LLC, we take your privacy and security seriously. This privacy policy describes how we collect, use, and safeguard your data when you use our restaurant discovery platform.
               </p>
 
               <div>
                 <h3 className="font-bold text-gray-900 text-base mb-1">1. Information We Collect</h3>
                 <p>
-                  We collect information necessary to provide and secure our support services. This includes your name, email address, support role (Customer or Restaurant Merchant), and any message details you submit to us via our ticket systems.
+                  We collect information necessary to power your discovery experience. This includes your name, email address, location (to show nearby restaurants), saved favourites, and any support messages you submit via our ticket system. Restaurant owners additionally provide their business details, menu information, and event data.
                 </p>
               </div>
 
               <div>
                 <h3 className="font-bold text-gray-900 text-base mb-1">2. How We Use Your Information</h3>
                 <ul className="list-disc pl-5 space-y-1">
-                  <li>To provide user assistance and process technical or delivery support tickets.</li>
-                  <li>To coordinate resolution with restaurant operators or customer services.</li>
-                  <li>To contact you regarding account inquiries, billing details, or urgent resolutions.</li>
+                  <li>To personalise restaurant recommendations and AI chatbot responses based on your preferences.</li>
+                  <li>To show you relevant nearby restaurants, events, and deals on the map and explore feed.</li>
+                  <li>To contact you regarding your account, saved favourites notifications, or support tickets.</li>
+                  <li>To help restaurant owners understand their audience through anonymised analytics.</li>
                 </ul>
               </div>
 
               <div>
                 <h3 className="font-bold text-gray-900 text-base mb-1">3. Direct Email Routing & Security</h3>
                 <p>
-                  Our system facilitates support requests by routing ticket submissions directly to our designated support email inbox at <span className="font-semibold text-brand-600">compellsolutions@gmail.com</span> using secure, authenticated transmission.
+                  Our support system routes ticket submissions directly to <span className="font-semibold text-brand-600">compellsolutions@gmail.com</span> using secure, authenticated transmission. We do not share your personal information with third-party advertisers.
                 </p>
               </div>
 
               <div>
                 <h3 className="font-bold text-gray-900 text-base mb-1">4. Third-Party Sharing</h3>
                 <p>
-                  Compell Solutions LLC does not sell, lease, or rent your personal information to third parties. Data is only shared with active delivery riders or restaurant kitchens as required to resolve active order errors.
+                  Compell Solutions LLC does not sell, lease, or rent your personal information to third parties. Restaurant profile information that owners publish (menus, photos, events) is intentionally public and visible to all users of the platform.
                 </p>
               </div>
 
@@ -105,34 +106,34 @@ export const LegalModal: React.FC<LegalModalProps> = ({ isOpen, pageType, onClos
 
             <div className="prose prose-sm text-gray-600 space-y-4 leading-relaxed text-sm">
               <p className="font-medium text-gray-900">
-                Welcome to the Renbite Support Center. By using our services and accessing this site, you agree to comply with the terms defined below by Compell Solutions LLC.
+                Welcome to the Renbite Support Center. By using our restaurant discovery platform and accessing this site, you agree to comply with the terms defined below by Compell Solutions LLC.
               </p>
 
               <div>
-                <h3 className="font-bold text-gray-900 text-base mb-1">1. User Agreements</h3>
+                <h3 className="font-bold text-gray-900 text-base mb-1">1. Platform Purpose</h3>
                 <p>
-                  Users must provide truthful, complete, and accurate information when registering, requesting support, or submitting a platform ticket. Using false names or unauthorized emails is strictly prohibited.
+                  Renbite is a restaurant discovery platform. We help diners find local restaurants through AI-powered recommendations, map exploration, and curated feeds. We do not facilitate food delivery. Users are responsible for independently visiting or contacting restaurants they find on Renbite.
                 </p>
               </div>
 
               <div>
-                <h3 className="font-bold text-gray-900 text-base mb-1">2. Support Ticket Fair Use</h3>
+                <h3 className="font-bold text-gray-900 text-base mb-1">2. User Agreements</h3>
                 <p>
-                  Our priority ticket routing to <span className="font-semibold text-brand-600">compellsolutions@gmail.com</span> is intended to resolve genuine order issues, restaurant payouts, kitchen modifications, and related inquiries. Abuse of support tickets or harassment of agents will result in immediate suspension of account privileges.
+                  Users must provide truthful, complete, and accurate information when registering, submitting reviews, or requesting support. Using false names or unauthorized emails is strictly prohibited. Reviews must reflect genuine personal experiences.
                 </p>
               </div>
 
               <div>
-                <h3 className="font-bold text-gray-900 text-base mb-1">3. Limitation of Liability</h3>
+                <h3 className="font-bold text-gray-900 text-base mb-1">3. Restaurant Owner Responsibilities</h3>
                 <p>
-                  Compell Solutions LLC coordinates third-party food preparation and local delivery logistics. We are not directly responsible for food safety, rider timing, or kitchen operations, but we will actively mediate disputes and offer standard refunds for incomplete orders.
+                  Restaurant owners are responsible for ensuring their listed information — including menus, opening hours, photos, wait times, and events — is accurate and up to date. Misleading listings or false promotions may result in account suspension.
                 </p>
               </div>
 
               <div>
-                <h3 className="font-bold text-gray-900 text-base mb-1">4. Refund and Cancellation Rules</h3>
+                <h3 className="font-bold text-gray-900 text-base mb-1">4. Support Ticket Fair Use</h3>
                 <p>
-                  Order modifications or cancellations are only supported within the first 2 minutes of placing an order. Refunds for legitimate delivery failures are processed back to the user's original payment method or stored as App Credit within 3–5 business days.
+                  Our priority ticket routing to <span className="font-semibold text-brand-600">compellsolutions@gmail.com</span> is intended to resolve genuine app issues, listing queries, account problems, and related platform inquiries. Abuse of support tickets or harassment of agents will result in immediate suspension of account privileges.
                 </p>
               </div>
 
@@ -161,27 +162,38 @@ export const LegalModal: React.FC<LegalModalProps> = ({ isOpen, pageType, onClos
 
             <div className="prose prose-sm text-gray-600 space-y-4 leading-relaxed text-sm">
               <p className="font-medium text-gray-900">
-                Renbite is a state-of-the-art logistics and food delivery assistance application owned, managed, and developed by Compell Solutions LLC.
+                Renbite is a restaurant discovery platform built and managed by Compell Solutions LLC, designed to connect hungry diners with amazing local restaurants.
               </p>
 
               <div>
                 <h3 className="font-bold text-gray-900 text-base mb-1">Our Mission</h3>
                 <p>
-                  We aim to bridge local merchant kitchens with passionate diners. By providing elegant ordering flows, live GPS coordinates, and fair pricing models, we empower independent restaurant owners to compete and scale their operations seamlessly.
+                  We believe the best restaurants are often the ones you haven't found yet. Renbite exists to help people discover their next favourite local restaurant while giving restaurant owners powerful tools to reach more customers. We are the app people open before asking: "Where should I eat today?"
                 </p>
               </div>
 
               <div>
-                <h3 className="font-bold text-gray-900 text-base mb-1">Who We Are</h3>
+                <h3 className="font-bold text-gray-900 text-base mb-1">What Renbite Does</h3>
+                <ul className="list-disc pl-5 space-y-1">
+                  <li>AI-powered restaurant recommendations tailored to your cravings.</li>
+                  <li>Interactive map to explore local restaurants near you.</li>
+                  <li>Live wait times and busyness indicators so you visit at the right time.</li>
+                  <li>Events, deals, and specials from restaurants in your area.</li>
+                  <li>Save and revisit your favourite spots with one tap.</li>
+                </ul>
+              </div>
+
+              <div>
+                <h3 className="font-bold text-gray-900 text-base mb-1">For Restaurant Owners</h3>
                 <p>
-                  Compell Solutions LLC is a high-grade software systems provider based in Indiana. We build highly accessible, responsive web systems that secure user data, simplify order-taking, and optimize customer support pathways.
+                  Renbite gives local restaurants the tools to grow — from analytics tracking profile views and customer saves, to a Boost feature that elevates visibility in recommendations and the explore feed. Owners can publish events, manage their listing, and connect directly with diners discovering them for the first time.
                 </p>
               </div>
 
               <div>
                 <h3 className="font-bold text-gray-900 text-base mb-1">Our Support Commitment</h3>
                 <p>
-                  We strive for absolute customer satisfaction. If you encounter any delivery disputes or operational hiccups, our dedicated team is reachable via phone at <span className="font-semibold text-brand-600">+1 (317) 266-9720</span> or via direct ticketing directly to <span className="font-semibold text-brand-600">compellsolutions@gmail.com</span>.
+                  If you have any questions or need help with your Renbite experience, our dedicated team is reachable at <span className="font-semibold text-brand-600">+1 (317) 266-9720</span> or via direct ticketing to <span className="font-semibold text-brand-600">compellsolutions@gmail.com</span>.
                 </p>
               </div>
 

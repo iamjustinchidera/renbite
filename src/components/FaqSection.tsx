@@ -13,7 +13,6 @@ import {
   Shield,
   MessagesSquare,
   FileText,
-  Truck,
   RotateCcw,
   Utensils,
   CreditCard,
@@ -24,6 +23,11 @@ import {
   Search,
   FilterX,
   Compass,
+  Bot,
+  Map,
+  BarChart2,
+  Star,
+  Rocket,
 } from 'lucide-react';
 
 interface FaqSectionProps {
@@ -38,12 +42,13 @@ const getCategoryIcon = (category: string) => {
   if (c.includes('account') || c.includes('profile')) return User;
   if (c.includes('billing') || c.includes('security') || c.includes('finance')) return CreditCard;
   if (c.includes('feedback') || c.includes('support')) return MessagesSquare;
-  if (c.includes('refund') || c.includes('cancel')) return RotateCcw;
-  if (c.includes('tracking') || c.includes('delivery') || c.includes('logistics')) return Truck;
-  if (c.includes('dietary') || c.includes('allergy')) return Shield;
+  if (c.includes('ai') || c.includes('discovery')) return Bot;
+  if (c.includes('map') || c.includes('restaurant info')) return Map;
+  if (c.includes('analytics') || c.includes('insights')) return BarChart2;
+  if (c.includes('events') || c.includes('deals') || c.includes('promotions')) return Gift;
+  if (c.includes('boost') || c.includes('visibility')) return Rocket;
   if (c.includes('onboarding') || c.includes('registration')) return Store;
-  if (c.includes('kitchen') || c.includes('menu')) return ChefHat;
-  if (c.includes('marketing') || c.includes('promo') || c.includes('sale')) return Gift;
+  if (c.includes('about')) return Compass;
   return FileText;
 };
 
@@ -127,7 +132,7 @@ export const FaqSection: React.FC<FaqSectionProps> = ({
           Frequently asked questions
         </h2>
         <p className="mt-3 text-sm text-gray-500 font-medium text-center" id="faq-subtitle">
-          Can't find the answers? Switch roles to view seller guides or search above.
+          Can't find the answers? Switch roles to view diner guides or restaurant owner guides, or search above.
         </p>
 
         {/* Tab Segment Controller */}
